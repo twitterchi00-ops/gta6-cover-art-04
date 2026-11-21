@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Lab</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" id="controls">
+    <h1>Vice Cover Lab</h1>
+    <p class="tagline">Any photo, any caption — a GTA-style cover in seconds. Fully offline.</p>
+
+    <label class="field">Photo (fills every panel)
+      <input id="photo" type="file" accept="image/*">
+    </label>
+    <div class="row" id="sampleRow">
+      <button type="button" data-sample="boulevard">Sample: Boulevard</button>
+      <button type="button" data-sample="pier">Sample: Pier</button>
+    </div>
+
+    <fieldset>
+      <legend>Layout</legend>
+      <div class="pick" id="layoutPick">
+        <button type="button" data-layout="stack" class="on">Stack</button>
+        <button type="button" data-layout="grid">Grid</button>
+        <button type="button" data-layout="hero">Hero</button>
+        <button type="button" data-layout="split">Split</button>
+        <button type="button" data-layout="strip">Strip</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Grade</legend>
+      <div class="pick" id="gradePick">
+        <button type="button" data-grade="vice" class="on">Vice</button>
+        <button type="button" data-grade="neon">Neon</button>
+        <button type="button" data-grade="gold">Gold</button>
+        <button type="button" data-grade="noir">Noir</button>
+        <button type="button" data-grade="candy">Candy</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Lettering</legend>
+      <div class="pick" id="letterPick">
+        <button type="button" data-letter="block" class="on">Block</button>
+        <button type="button" data-letter="outline">Outline</button>
+        <button type="button" data-letter="neon">Neon</button>
+        <button type="button" data-letter="slant">Slant</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Export size</legend>
+      <div class="pick" id="sizePick">
+        <button type="button" data-size="square" class="on">1080 &times; 1080</button>
+        <button type="button" data-size="portrait">1080 &times; 1350</button>
+        <button type="button" data-size="wide">1920 &times; 1080</button>
+      </div>
+    </fieldset>
+
+    <label class="field">Title
+      <input id="title" type="text" maxlength="24" value="NEON NIGHTS">
+    </label>
+    <label class="field">Subtitle
+      <input id="subtitle" type="text" maxlength="40" value="Vice City, after dark">
+    </label>
+
+    <fieldset>
+      <legend>Panel (crop &amp; position)</legend>
+      <div class="pick" id="panelPick">
+        <button type="button" data-panel="0" class="on">Panel 1</button>
+        <button type="button" data-panel="1">Panel 2</button>
+        <button type="button" data-panel="2">Panel 3</button>
+        <button type="button" data-panel="3">Panel 4</button>
+      </div>
+      <label class="slider">Zoom <input id="zoom" type="range" min="100" max="220" value="100"><span id="zoomVal">100%</span></label>
+      <label class="slider">Pan X <input id="panX" type="range" min="-50" max="50" value="0"><span id="panXVal">0</span></label>
+      <label class="slider">Pan Y <input id="panY" type="range" min="-50" max="50" value="0"><span id="panYVal">0</span></label>
+    </fieldset>
+
+    <button id="export" type="button" class="export">Export PNG</button>
+    <p id="status" role="status"></p>
+    <div id="gallery" class="gallery" aria-label="Exported covers"></div>
+  </section>
+  <section class="preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
